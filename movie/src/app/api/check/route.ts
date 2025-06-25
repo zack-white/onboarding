@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
       [userId, movieId]
     )
 
-    return NextResponse.json({ added: result.rowCount > 0 })
+    return NextResponse.json({ added: result.rows.length > 0 })
   } catch (err) {
     console.error('DB error:', err)
     return NextResponse.json({ error: 'Database error' }, { status: 500 })
